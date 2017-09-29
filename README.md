@@ -1,44 +1,37 @@
 # DiscordCaptcha
-### Captcha Verification Bot based on Discord.js
 
-`Read the wiki for some fixes`
+A Captcha verification bot based on discord.js.
 
-### Configuration File: src/config.json
-<a href="https://i.imgur.com/i50h5nT.gifv"><img src="https://i.imgur.com/i50h5nT.gifv" /></a>
+## Setup procedure
 
+The configuration file is located in src/config.json.
 
-### The prefix must not be longer than 1 Character, otherwise some commands won't work!
+![Config](https://i.imgur.com/i50h5nT.gif)
+
+**Note: The prefix must not be longer than 1 character, otherwise some commands won't work!**
+
 ![Prefix](https://i.imgur.com/xRFvCCG.png)
 
+Download Node.js from here: https://nodejs.org/en/download/package-manager/
 
-
-
-
-Node Download: https://nodejs.org/en/download/package-manager/
 ![NodeInstall](https://i.imgur.com/cvgsE16.png)
 
+Before starting the bot for the first time, run `~/setup.bat`.
 
+**If your operating system is not Windows, please run `npm install` in the bot's directory with your respective terminal program.
 
+## Additional commands
 
-
-
-
-Run both setup files: ![setup](https://i.imgur.com/i7IxZ7j.png)
-
-#### If you are not on windows, please run manually `npm install discord.js --save` and `npm install webshot --save`
-
-_Additional Commands_
-
-!block <USERID> -> User will get kicked after writing something. 
+!block <USERID> -> User will get kicked after writing something.
 
 !pop -> Removes the last blocked ID.
 
-!clear <int 1-100> -> Deletes x messages
+!clear <int 1-100> -> Deletes x messages.
 
-__Tips__
+## Tips
 
-Take a look into the wiki for some fixes.
+Look at the wiki for some fixes.
 
-Make sure you've created a channel called verify and the bot role is higher than the verified role
+Make sure you've created a channel called verify and the bot role is higher than the verified role.
 ![verifychannel](https://i.imgur.com/Ws9HJql.png)
 ![roles](https://i.imgur.com/R7ugoYO.png)
