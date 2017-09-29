@@ -2,15 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const fs = require("fs");
 const config = require("./src/config.json");
-const token = config.token;
 const clientID = config.clientid;
 const prefix = config.prefix;
-const normalChat = config.chat;
-const userRoleID = config.userrole;
-const evalPerm = config.evalAllowed;
-const owner = config.ownerid;
-const streamingGame = config.streamingGame;
-const streamingLink = config.streamingLink;
 var blockedAccountIDs = [
 	"ID1",
 	"ID2"
@@ -34,7 +27,7 @@ client.on("guildMemberAdd", (member) => {
 
 client.on("ready", () => {
 	console.log("Logged in!")
-	client.user.setGame(streamingGame, streamingLink);
+	client.user.setGame(config.streamingGame, config.streamingLink);
 });
 
 client.on('message', (message) => {
@@ -124,7 +117,7 @@ if(message.author.id != clientID){
 					color: 0x00ff00,
 					description: "Successfully verified on `" + message.guild.name + "`"
 				}});
-				client.channels.find('name', normalChat).send("<@" + message.author.id + "> was successfully verified.");
+				client.channels.find('name', config.chat).send("<@" + message.author.id + "> was successfully verified.");
 				queue.pop();
 				fs.appendFileSync("./verify_logs.txt", "[VerifyBot] " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "| " + message.author.tag + "(" + message.author.id + ") verified himself.");
 				message.member.addRole(userRoleID).catch(error => console.log(error));
@@ -188,11 +181,11 @@ if(message.guild){
 			return message.channel.send("Missing Permissions");
 		}
 	}
-	if(message.author.id === owner && evalPerm === "true" && message.content.startsWith(prefix + "eval")){
+	if(message.author.id === config.ownerid && config.evalAllowed === "true" && message.content.startsWith(prefix + "eval")){
 		message.channel.send(":outbox_tray: Output: ```JavaScript\n" + eval(message.content.substr(6)) + "\n```");
 	}
 }else{
 	message.author.send(":x: I only react in guilds!");
 }
 });
-client.login(token);
+client.login(config.token);

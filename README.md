@@ -4,7 +4,7 @@
 `Read the wiki for some fixes`
 
 ### Configuration File: src/config.json
-<a href="https://i.imgur.com/i50h5nT.gifv"><img src="https://i.imgur.com/i50h5nT.gifv" /></a>
+![Config](https://i.imgur.com/i50h5nT.gif)
 
 
 ### The prefix must not be longer than 1 Character, otherwise some commands won't work!
