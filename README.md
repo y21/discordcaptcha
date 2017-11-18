@@ -1,34 +1,16 @@
-# DiscordCaptcha
+# DiscordCaptcha Linux-Stable
+A linux-compatible captcha verification bot based on discord.js. <br/>
+At least <a href="https://nodejs.org/en/download/package-manager/">Node.js 8.0</a> is required to make this work. 
 
-A Captcha verification bot based on discord.js.
-
-**Since it's using WebShot for images, this version is only compatible on Windows.**
 
 ## Setup procedure
-
-The configuration file is located in src/config.json.
-
-![Config](https://i.imgur.com/i50h5nT.gif)
-
-**Note: The prefix must not be longer than 1 character, otherwise some commands won't work!**
-
-![Prefix](https://i.imgur.com/xRFvCCG.png)
-
-Download Node.js from here: https://nodejs.org/en/download/package-manager/
-
-![NodeInstall](https://i.imgur.com/cvgsE16.png)
-
-Before starting the bot for the first time, run `~/setup.bat`.
-
-**If your operating system is not Windows, please run `npm install` in the bot's directory with your respective terminal program.
+The configuration file is located in ~/config.json.  <br />
+**Note: The prefix must not be longer than 1 character, otherwise some commands won't work!** <br />
 
 ## Additional commands
-
-!block <USERID> -> User will get kicked after writing something.
-
-!pop -> Removes the last blocked ID.
-
-!clear <int 1-100> -> Deletes x messages.
+• !block &lt;<i>INT</i> UserID&gt; → Adds a user id to the blacklist. If the user sends a message, he'll get instantly kicked. <br />
+• !pop → Removes the last blocked user <br />
+• !clear &lt;<i>INT</i> amount of messages to delete&gt; → Deletes x messages.
 
 ## Tips
 

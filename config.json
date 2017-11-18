@@ -1,0 +1,13 @@
+{  
+    "token":"token",
+    "clientID":"clientid",
+    "prefix":"=",
+    "chat":"main-chat",
+    "userrole":"user_role_id",
+    "streamingGame":"DiscordCaptcha",
+    "streamingLink":"https://www.twitch.tv/doxicalswitch",
+    "blockedAccountIDs":[  
+        "123",
+        "456"
+    ]
+}
