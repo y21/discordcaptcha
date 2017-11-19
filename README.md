@@ -4,8 +4,9 @@ At least <a href="https://nodejs.org/en/download/package-manager/">Node.js 8.0</
 
 
 ## Setup procedure
-The configuration file is located in ~/config.json.  <br />
+The configuration file is located in `~/config.json.`  <br />
 **Note: The prefix must not be longer than 1 character, otherwise some commands won't work!** <br />
+You can add captcha images manually in the `~/captchas/` directory, but you have to add it to the `captchas` array in `~/config.json`.
 
 ## Additional commands
 • !block &lt;<i>INT</i> UserID&gt; → Adds a user id to the blacklist. If the user sends a message, he'll get instantly kicked. <br />

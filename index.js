@@ -2,12 +2,10 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require("./config.json");
 const fs = require("fs");
-
 // Config
 var queue = [];
 var filter = [];
 var kicked = [];
-
 
 
 
@@ -21,10 +19,12 @@ client.on('message', (message) => {
     if (message.author.id != config.clientID) {
         if (message.content == config.prefix + "receive" || message.content == config.prefix + "verify") {
             if (message.channel.name == "verify") {
-                var captcha = String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4) + String(Math.random()).charAt(4);
-                message.author.send(new Discord.RichEmbed().setTitle("Verification").setDescription("This Server is using the verification bot DiscordCaptcha, Please verify yourself as a human by pasting in the following code into the channel #verify from `" + message.guild.name + "`").setColor(0x9575CD).addField("Contact", "The Bot was made by **y21#0909**. Feel free to contact me if you found a bug or open a pull request."));
-                message.author.send("```JavaScript\n" + config.prefix + "verify " + captcha + "\n```");
-                var author = message.author.id;
+                var captcha = config.captchas[Math.floor(Math.random() * config.captchas.length) + 1];
+                message.author.send(new Discord.RichEmbed().setTitle("Verification System").setDescription("This Server is using the verification bot DiscordCaptcha, Please verify yourself as a human by pasting in the following code into the channel #verify from `" + message.guild.name + "`").setColor(0x9575CD).addField("Contact", "The Bot was made by **y21#0909**. Feel free to contact me if you found a bug or open a pull request."));
+                // message.author.send("```JavaScript\n" + config.prefix + "verify " + captcha + "\n```");
+				message.author.send("", {
+                            files: ['./captchas/' + captcha]
+                        })
                 queue.push(author + "x" + captcha);
             }
         } else if (message.channel.name == "verify" && message.content.includes(config.prefix + "verify")) {
@@ -33,16 +33,19 @@ client.on('message', (message) => {
                 var cpoint = queue[i].indexOf("x");
             }
             cpoint++;
+			 var oldcaptcha;
             for (i = 0; i < queue.length; i++) {
-                var oldcaptcha = queue[i].substr(cpoint);
+                oldcaptcha = queue[i].substr(cpoint);
             }
+			oldcaptcha = oldcaptcha.substr(0, String(oldcaptcha).indexOf(".png"));
             if (input == oldcaptcha) {
                 message.member.addRole(config.userrole).catch(error => console.log(error));
+				message.author.send(new Discord.RichEmbed().setTitle("Verification System").setDescription("You've successfully verified yourself as a human and are able to write in `" + message.guild.name + "`").setColor(0x42A5F5));
             } else {
-                if (message.content != config.prefix + "verify") {
-                    message.author.send("You were kicked from " + message.guild.name + " (WRONG_CAPTCHA)");
+               if (message.content != config.prefix + "verify") {
+                    message.author.send(new Discord.RichEmbed().setTitle("Verification System").setDescription("You were kicked from `" + message.guild.name + "` because the captcha you've sent was incorrect.").setColor(0xf44336));
                     message.member.kick();
-                }
+                } 
             }
         }
     }
