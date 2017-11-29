@@ -1,22 +1,24 @@
-# DiscordCaptcha Linux-Stable
-A linux-compatible captcha verification bot based on discord.js. <br/>
-At least <a href="https://nodejs.org/en/download/package-manager/">Node.js 8.0</a> is required to make this work. 
+<img src="https://image.ibb.co/gEN0oR/discord_banner.png"><br/>
+A Captcha verification bot based on Discord.js.
 
+✅ This Version is linux-compatible, but it's recommended to use the master version of DiscordCaptcha if you're hosting this bot on windows.
 
 ## Setup procedure
-The configuration file is located in `~/config.json.`  <br />
-**Note: The prefix must not be longer than 1 character, otherwise some commands won't work!** <br />
-You can add captcha images manually in the `~/captchas/` directory, but you have to add it to the `captchas` array in `~/config.json`.
+DiscordCaptcha requires NodeJS 8.0+. Install it <a href="https://nodejs.org/en/download/package-manager/">here</a>.<br />
+To install all required NPM-Modules, run `npm install` <b>in bots' directory</b><br/><br/>
+
+The config file is located in `~/config.json`. Get your Token from <a href="https://discordapp.com/developers/applications/me">here</a>.
 
 ## Additional commands
-• !block &lt;<i>INT</i> UserID&gt; → Adds a user id to the blacklist. If the user sends a message, he'll get instantly kicked. <br />
-• !pop → Removes the last blocked user <br />
-• !clear &lt;<i>INT</i> amount of messages to delete&gt; → Deletes x messages.
+
+```js
+!block <UserID> // Blocks a User ID. If the User sends a message to the guild, he'll get kicked.
+!pop <UserID> // Removes a User ID from the blacklist. User can write again without getting kicked.
+!clear <UserID> // Clears an amount of messages.
+```
 
 ## Tips
 
-Look at the wiki for some fixes.
-
-Make sure you've created a channel called verify and the bot role is higher than the verified role.
-![verifychannel](https://i.imgur.com/Ws9HJql.png)
-![roles](https://i.imgur.com/R7ugoYO.png)
+• Look at the wiki for some fixes.<br/>
+• Contact me via discord. (y21#0909 | ID: 312715611413413889)<br/>
+• Open a Pull Request/Issue
