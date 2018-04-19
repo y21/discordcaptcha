@@ -4,9 +4,9 @@
  * @returns {promise} message - The "missing permissions" promise (will return if member has not enough permissions
 **/
 module.exports = (message, contrib) => {
-	if(!contrib || message.mentions.users.size === 0) return;
+	if(!contrib || message.mentions.users.size === 0) return message.reply('you either aren\'t allowed to use the command or you did not mention an user.');
 	if(contrib.includes(message.author.tag)) {
 		message.mentions.members.first().ban().catch(console.log);
 		message.reply("banned " + message.mentions.users.first().tag).catch(console.log);
 	}
-};
+};
