@@ -6,7 +6,7 @@ A Captcha verification bot based on Discord.js.
 > Version 3.0.0 has much new features, which you can see on the project page.
 
 You can find a detailed tutorial <a href="https://www.gitbook.com/book/y21/discordcaptcha/">here</a>. <br />
-Feel free to join our <a href="discord.gg/955naZw">discord server</a> for live support.
+Feel free to join our <a href="https://discord.gg/955naZw">discord server</a> for live support.
 
 ## Setup procedure
 DiscordCaptcha requires NodeJS 8.0+. Install it <a href="https://nodejs.org/en/download/package-manager/">here</a>.<br />
