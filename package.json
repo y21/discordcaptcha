@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/y21/discordcaptcha#readme",
   "dependencies": {
-    "@types/node": "^13.11.0",
+    "@types/node": "^13.13.2",
     "detritus-client": "^0.10.1",
     "jimp": "^0.10.0"
   }
