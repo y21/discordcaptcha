@@ -19,6 +19,6 @@
   "dependencies": {
     "@types/node": "^13.11.0",
     "detritus-client": "^0.10.1",
-    "jimp": "^0.10.0"
+    "jimp": "^0.12.1"
   }
 }
